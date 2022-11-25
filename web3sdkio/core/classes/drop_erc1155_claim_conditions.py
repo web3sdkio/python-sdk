@@ -1,26 +1,37 @@
-from typing import List
-from web3sdkio.abi.drop_erc1155 import DropERC1155_V2
+from typing import Any, Dict, List, Optional, cast
+from web3sdkio.abi.drop_erc1155 import DropERC1155
+from web3sdkio.abi.drop_erc721 import DropERC721
+from web3sdkio.abi.ierc20 import IERC20
 from web3sdk.iomon.claim_conditions import (
+    get_claimer_proofs,
+    process_claim_condition_inputs,
     transform_result_to_claim_condition,
 )
+from web3sdk.iomon.currency import is_native_token, parse_units
+from web3sdk.iomon.error import includes_error_message
+from web3sdkio.constants.addresses import DEFAULT_MERKLE_ROOT
 from web3sdkio.core.classes.contract_metadata import ContractMetadata
 from web3sdkio.core.classes.contract_wrapper import ContractWrapper
 from web3sdkio.core.classes.ipfs_storage import IpfsStorage
 from web3sdkio.types.contracts.claim_conditions import (
     ClaimCondition,
 )
+from web3sdkio.types.currency import Amount
 from web3sdkio.types.settings.metadata import EditionDropContractMetadata
+from web3.eth import TxReceipt
+from web3.constants import MAX_INT
+from time import time
 
 
 class DropERC1155ClaimConditions:
-    _contract_wrapper: ContractWrapper[DropERC1155_V2]
-    _metadata: ContractMetadata[DropERC1155_V2, EditionDropContractMetadata]
+    _contract_wrapper: ContractWrapper[DropERC1155]
+    _metadata: ContractMetadata[DropERC1155, EditionDropContractMetadata]
     _storage: IpfsStorage
 
     def __init__(
         self,
-        contract_wrapper: ContractWrapper[DropERC1155_V2],
-        metadata: ContractMetadata[DropERC1155_V2, EditionDropContractMetadata],
+        contract_wrapper: ContractWrapper[DropERC1155],
+        metadata: ContractMetadata[DropERC1155, EditionDropContractMetadata],
         storage: IpfsStorage,
     ):
         self._contract_wrapper = contract_wrapper

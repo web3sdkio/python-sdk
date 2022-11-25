@@ -1,7 +1,7 @@
 from typing import Final, List, Optional
 
 from web3 import Web3
-from web3sdkio.abi import DropERC1155_V2
+from web3sdkio.abi import DropERC1155
 from web3sdk.iomon.claim_conditions import prepare_claim
 from web3sdkio.constants.addresses import DEFAULT_MERKLE_ROOT
 from web3sdkio.constants.role import Role
@@ -27,7 +27,7 @@ from web3sdkio.types.tx import TxResultWithId
 from web3.eth import TxReceipt
 
 
-class EditionDrop(ERC1155[DropERC1155_V2]):
+class EditionDrop(ERC1155[DropERC1155]):
     """
     Setup a collection of NFTs with a customizable number of each NFT that are minted as users claim them.
 
@@ -47,18 +47,18 @@ class EditionDrop(ERC1155[DropERC1155_V2]):
     ```
     """
 
-    _abi_type = DropERC1155_V2
+    _abi_type = DropERC1155
 
     contract_type: Final[ContractType] = ContractType.EDITION_DROP
     contract_roles: Final[List[Role]] = [Role.ADMIN, Role.MINTER, Role.TRANSFER]
 
-    metadata: ContractMetadata[DropERC1155_V2, EditionDropContractMetadata]
+    metadata: ContractMetadata[DropERC1155, EditionDropContractMetadata]
     roles: ContractRoles
-    primary_sale: ContractPrimarySale[DropERC1155_V2]
-    platform_fee: ContractPlatformFee[DropERC1155_V2]
-    royalty: ContractRoyalty[DropERC1155_V2]
+    primary_sale: ContractPrimarySale[DropERC1155]
+    platform_fee: ContractPlatformFee[DropERC1155]
+    royalty: ContractRoyalty[DropERC1155]
     claim_conditions: DropERC1155ClaimConditions
-    events: ContractEvents[DropERC1155_V2]
+    events: ContractEvents[DropERC1155]
 
     def __init__(
         self,
@@ -68,7 +68,7 @@ class EditionDrop(ERC1155[DropERC1155_V2]):
         signer: Optional[LocalAccount] = None,
         options: SDKOptions = SDKOptions(),
     ):
-        abi = DropERC1155_V2(provider, address)
+        abi = DropERC1155(provider, address)
         contract_wrapper = ContractWrapper(abi, provider, signer, options)
         super().__init__(contract_wrapper, storage)
 

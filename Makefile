@@ -26,13 +26,16 @@ abi:
 	abi-gen --language Python -o web3sdkio/abi --abis abi/IERC20.json && mv web3sdkio/abi/ierc20/__init__.py web3sdkio/abi/ierc20.py && rm -rf web3sdkio/abi/ierc20
 	abi-gen --language Python -o web3sdkio/abi --abis abi/IERC721.json && mv web3sdkio/abi/ierc721/__init__.py web3sdkio/abi/ierc721.py && rm -rf web3sdkio/abi/ierc721
 	abi-gen --language Python -o web3sdkio/abi --abis abi/IERC1155.json && mv web3sdkio/abi/ierc1155/__init__.py web3sdkio/abi/ierc1155.py && rm -rf web3sdkio/abi/ierc1155
-	abi-gen --language Python -o web3sdkio/abi --abis abi/DropERC721_V3.json && mv web3sdkio/abi/droperc721_v3/__init__.py web3sdkio/abi/drop_erc721.py && rm -rf web3sdkio/abi/droperc721_v3
-	abi-gen --language Python -o web3sdkio/abi --abis abi/DropERC1155_V2.json && mv web3sdkio/abi/droperc1155_v2/__init__.py web3sdkio/abi/drop_erc1155.py && rm -rf web3sdkio/abi/droperc1155_v2
+	abi-gen --language Python -o web3sdkio/abi --abis abi/DropERC721.json && mv web3sdkio/abi/drop_erc721/__init__.py web3sdkio/abi/drop_erc721.py && rm -rf web3sdkio/abi/drop_erc721
+	abi-gen --language Python -o web3sdkio/abi --abis abi/DropERC1155.json && mv web3sdkio/abi/drop_erc1155/__init__.py web3sdkio/abi/drop_erc1155.py && rm -rf web3sdkio/abi/drop_erc1155
 	abi-gen --language Python -o web3sdkio/abi --abis abi/Multiwrap.json && mv web3sdkio/abi/multiwrap/__init__.py web3sdkio/abi/multiwrap.py && rm -rf web3sdkio/abi/multiwrap
 	
 	abi-gen --language Python -o web3sdkio/abi --abis abi/SignatureMintERC20.json && mv web3sdkio/abi/signature_mint_erc20/__init__.py web3sdkio/abi/signature_mint_erc20.py && rm -rf web3sdkio/abi/signature_mint_erc20
 	abi-gen --language Python -o web3sdkio/abi --abis abi/SignatureMintERC721.json && mv web3sdkio/abi/signature_mint_erc721/__init__.py web3sdkio/abi/signature_mint_erc721.py && rm -rf web3sdkio/abi/signature_mint_erc721
 	abi-gen --language Python -o web3sdkio/abi --abis abi/SignatureMintERC1155.json && mv web3sdkio/abi/signature_mint_erc1155/__init__.py web3sdkio/abi/signature_mint_erc1155.py && rm -rf web3sdkio/abi/signature_mint_erc1155
+
+	abi-gen --language Python -o web3sdkio/abi --abis abi/ContractMetadataRegistry.json && mv web3sdkio/abi/contract_metadata_registry/__init__.py web3sdkio/abi/contract_metadata_registry.py && rm -rf web3sdkio/abi/contract_metadata_registry
+	abi-gen --language Python -o web3sdkio/abi --abis abi/Web3sdkioContract.json && mv web3sdkio/abi/web3sdkio_contract/__init__.py web3sdkio/abi/web3sdkio_contract.py && rm -rf web3sdkio/abi/web3sdkio_contract
 
 	abi-gen --language Python -o web3sdkio/abi --abis abi/ITokenERC20.json && mv web3sdkio/abi/i_token_erc20/__init__.py web3sdkio/abi/i_token_erc20.py && rm -rf web3sdkio/abi/i_token_erc20
 	abi-gen --language Python -o web3sdkio/abi --abis abi/ITokenERC721.json && mv web3sdkio/abi/i_token_erc721/__init__.py web3sdkio/abi/i_token_erc721.py && rm -rf web3sdkio/abi/i_token_erc721

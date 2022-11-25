@@ -1,6 +1,6 @@
 from dataclasses import dataclass, field
 from time import time
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Union
 from web3sdkio.constants.addresses import DEFAULT_MERKLE_ROOT
 from web3sdkio.constants.currency import NATIVE_TOKEN_ADDRESS
 from web3sdkio.types.currency import Amount, CurrencyValue, Price
