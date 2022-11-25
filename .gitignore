@@ -1,24 +1,29 @@
-# python venv
-.env
-
 **/__pycache__
+**/*.pyc
+*.pyc
 
+.env
+.venv
+.DS_Store
+.vscode
 .idea
 
-# wheel build artifacts
-build/
-dist
+.mypy_cache
+.pytest_cache
 
-nftlabs_sdk.egg-info/
-nftlabs/.DS_Store
-nftlabs/modules/docs/*
-nftlabs/modules/.DS_Store
-.DS_Store
-x.sh
-examples/test.py
+Dockerfile
 
-**/*.pyc
+/abi
+/env
+/dist
+/build
+/reports
+/contracts
+/interfaces
+/node_modules
+/sphinx-docs
+/docker-test
 
-*.egg-info
-
-docs/site
+/docs/pydoc-markdown
+/docs/mkdocs/site
+/docs/build
